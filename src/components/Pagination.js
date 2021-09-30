@@ -7,24 +7,30 @@ const Pagination = ({ imagesPerPage, totalImages, paginate, currentPage }) => {
     pageNumbers.push(index);
   }
   return (
-    <nav>
-      <ul className="pagination">
-        {pageNumbers.map((number) => (
-          <li
-            key={number}
-            className={`page-item ${number === currentPage ? "active" : ""}`}
-          >
-            <a
-              href="#subbreed"
-              onClick={() => paginate(number)}
-              className="page-link"
-            >
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="row">
+      <div className="col">
+        <nav>
+          <ul className="pagination">
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`page-item ${
+                  number === currentPage ? "active" : ""
+                }`}
+              >
+                <a
+                  href="#subbreed"
+                  onClick={() => paginate(number)}
+                  className="page-link"
+                >
+                  {number}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 };
 
