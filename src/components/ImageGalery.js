@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 const ImageGalery = ({ breedName }) => {
   const [breedImages, setBreedImages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [imagesPerPage] = useState(12);
+  const [imagesPerPage] = useState(10);
 
   useEffect(() => {
     async function getBreedImages() {
@@ -32,18 +32,21 @@ const ImageGalery = ({ breedName }) => {
       <p className="text-muted">Image galery for {breedName}</p>
       {currentImages.map((image, index) => {
         return (
-          <img
-            className="image"
-            src={currentImages[index]}
-            alt="dog"
-            key={index}
-          />
+          <div className="image-container">
+            <img
+              className="image"
+              src={currentImages[index]}
+              alt="dog"
+              key={index}
+            />
+          </div>
         );
       })}
       <Pagination
         imagesPerPage={imagesPerPage}
         totalImages={breedImages.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );

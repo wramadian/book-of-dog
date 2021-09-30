@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
+const Pagination = ({ imagesPerPage, totalImages, paginate, currentPage }) => {
   const pageNumbers = [];
 
   for (let index = 1; index < Math.ceil(totalImages / imagesPerPage); index++) {
@@ -10,9 +10,12 @@ const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
     <nav>
       <ul className="pagination">
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
+          <li
+            key={number}
+            className={`page-item ${number === currentPage ? "active" : ""}`}
+          >
             <a
-              href="#galery"
+              href="#subbreed"
               onClick={() => paginate(number)}
               className="page-link"
             >

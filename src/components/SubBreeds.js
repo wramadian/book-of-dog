@@ -16,23 +16,29 @@ const SubBreeds = ({ breedName }) => {
   }, [subBreedsList, SubbreedsURL]);
 
   return (
-    <div className="col-4 p-2">
-      <h3>Sub-Breeds</h3>
-      {subBreedsList.length > 0 ? (
-        <p className="text-muted">click sub-breed name to show dog's photos</p>
-      ) : (
-        <p className="text-danger">
-          <strong>This breed doesn't have any sub-breed</strong>
-        </p>
-      )}
-      {subBreedsList.length > 0 &&
-        subBreedsList.map((subbreed, index) => {
-          return (
-            <button className="btn btn-primary m-1" key={index}>
-              {subbreed}
-            </button>
-          );
-        })}
+    <div className="row mt-5" id="subbreed">
+      <div className="col">
+        <h3>Sub-Breeds</h3>
+        {subBreedsList.length > 0 ? (
+          <p className="text-muted">sub-breed for {breedName}</p>
+        ) : (
+          <p className="text-danger">
+            <strong>{breedName} doesn't have any sub-breed</strong>
+          </p>
+        )}
+        {subBreedsList.length > 0 &&
+          subBreedsList.map((subbreed, index) => {
+            return (
+              <button
+                className="btn btn-outline-primary m-1"
+                key={index}
+                disabled
+              >
+                <strong style={{ color: "black" }}>{subbreed}</strong>
+              </button>
+            );
+          })}
+      </div>
     </div>
   );
 };

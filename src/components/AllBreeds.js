@@ -13,25 +13,28 @@ const AllBreeds = ({ setBreedNameFunction }) => {
       setBreeds(breedsData);
     }
     getBreedsData();
-  }, [breeds]);
+  }, []);
 
   return (
-    <div className="col-8 p-2">
-      <h3>Breeds List</h3>
-      <p className="text-muted">click breed name to show sub-breeds</p>
-      {breeds.map((breedsList, index) => {
-        let breedName = breeds[index];
+    <div className="row mt-3">
+      <div className="col">
+        <h3>Breeds List</h3>
+        <p className="text-muted">click breed name to show sub-breeds</p>
+        {breeds.map((breedsList, index) => {
+          let breedName = breeds[index];
 
-        return (
-          <button
-            className="btn btn-primary m-1"
-            key={index}
-            onClick={() => setBreedNameFunction(breedName)}
-          >
-            {breedName}
-          </button>
-        );
-      })}
+          return (
+            <a
+              href="#subbreed"
+              className="btn btn-primary m-1"
+              key={index}
+              onClick={() => setBreedNameFunction(breedName)}
+            >
+              {breedName}
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 };
